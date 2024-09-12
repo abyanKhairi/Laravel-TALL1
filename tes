@@ -1,0 +1,17 @@
+{{-- <div class="mb-6" wire:ignore>
+    <label for="keterangan_{{ $index }}" class="block text-sm font-medium text-gray-700">Keterangan</label>
+    <input id="keterangan_{{ $index }}" type="hidden" wire:model.defer="keterangan.{{ $index }}">
+    <trix-editor input="keterangan_{{ $index }}" data-action="trix-change@window.handleTrixChange"></trix-editor>
+
+    @error('keterangan.' . $index)
+    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+    @enderror
+</div> --}}
+
+<script>
+    document.addEventListener('trix-change', function (event) {
+        let inputId = event.target.getAttribute('input');
+        let inputElement = document.getElementById(inputId);
+        @this.set(`keterangan.${inputId.split('_').pop()}`, inputElement.value); // Adjust accordingly
+    });
+</script>
