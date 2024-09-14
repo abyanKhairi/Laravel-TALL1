@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->foreignId('kategori_id')->constrained('kategoris')->cascadeOnDelete();
             $table->string('name');
             $table->integer('jumlah');
-            $table->decimal('harga', 10, 2);  // Dengan dua tempat desimal untuk harga
+            $table->decimal('harga', 10, 2);
             $table->timestamps();
         });
     }
